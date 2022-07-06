@@ -1,0 +1,35 @@
+{% extends "base.html" %} 
+{% block title %}Garden Management Reports{% endblock title%}
+{% block head%}
+<!-- Data Table -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+
+{% endblock%}
+{% block content %}
+  <br><br>
+  <div class="card" >
+    <div class="card-header"></div>
+    <div class="card-body"></div>
+      <a href="{{ url_for('main.pdf') }}">
+      <button type="button" class="btn btn-add">
+      <span class="btn-icon-add"><i class="glyphicon glyphicon-plus"></i></span>Print PDF</button>
+    </a>  
+    <div class="card-footer"></div>
+  </div>
+  <br><br>
+{% endblock %}
+{% block footer %}
+  <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+  
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#proxies').dataTable();
+    });
+  </script>
+{% endblock %}
+<!-- https://github.com/roytuts/python-pdf/blob/master/python-write-pdf/write-simple-pdf.py -->
+<!-- https://roytuts.com/how-to-create-a-pdf-file-using-python/ -->
+<!-- https://roytuts.com/generate-pdf-report-from-mysql-database-using-python-flask/ -->

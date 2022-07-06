@@ -1,0 +1,33 @@
+flask
+flask-login
+flask-sqlalchemy
+fpdf-1.7.2
+bcrypt
+blinker
+certifi
+cffi
+click
+Flask
+Flask-Bcrypt
+Flask-Mail
+Flask-WTF
+itsdangerous
+Jinja2
+MarkupSafe
+Pillow
+pycparser
+six
+SQLAlchemy
+Werkzeug
+WTForms
+email_validator
+secrets
+plotly
+pandas
+numpy
+json
+PySocks
+geojson
+pyowm - API KEY:62e45904f8d013cfbcf50ec9822694d6
+login email - radar
+pw: aUTURHpnJU4QD8R

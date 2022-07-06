@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style type="text/css"> 
+.bg {	/* Full height */
+	/*background-image: none*/
+	background-image: url("{{ url_for('static',filename='media/'+'gb1.jpg') }}")
+}
+.ui-header{
+  margin: 5px 0 15px 0;
+  letter-spacing: 5px;
+  font-size: 30px;
+  color: #111;
+}
+</style>
+<br>
+<div class="row">
+    <div class="col-md-4 mb-4"></div>
+		<div class="card wow " data-wow-delay="0.3s">
+  		<div class="card-header text-secondary"> 
+  			<h1 class="ui-header text-center">403</h1>
+  		</div>
+    	<div class="card-body bg-light">
+			<h3 class="ui-header text-center"><small>Forbidden</small></h3>
+		</div>
+	</div>
+</div>
+<br>
+{% endblock %}

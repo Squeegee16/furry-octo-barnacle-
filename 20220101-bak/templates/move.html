@@ -1,0 +1,310 @@
+{% extends "base.html" %} 
+{% block title %}Transfers{% endblock title%}
+{% block head %}
+<!-- Data Table -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<!--   <script type = "text/javascript"  src="https://cdn.datatables.net/plug-ins/1.10.15/dataRender/datetime.js"></script> -->
+{% endblock%}
+{% block content %}
+            <br><br>
+            <div class="card wow fadeInRight" data-wow-delay="0.3s">
+              <div class="card-header">
+                <div class="row">
+                  <div class="col-sm-2"></div>
+                  <div class="col-sm-8">
+                    <div class="container">
+                      <h1 style="text-align:center">Garden Management System</h1>
+                      <div class="container">
+                      {% with messages = get_flashed_messages(with_categories=true) %}
+                         {%if messages %}
+                              {%for category, message in messages %}
+                                <div class="alert alert-{{ category }}">
+                                  <h4 style="text-align:center;">{{ message }}</h4>
+                                </div>
+                              {%endfor%}
+                        {%endif %}
+                      {%endwith%}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-2"></div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                  <div class="container">
+                    <h1>Transfers</h1>
+                      <button type="button" class="btn btn-add" data-toggle="modal" data-target="#exampleModal">
+                      <span class="btn-icon-add"><i class="glyphicon glyphicon-plus"></i></span>Move Plants</button>
+                      <h3 style="display: inline-block;margin:0;"> Plant Location Management</h3>
+                    </div>
+                  <table class="table table-sm">
+                  <thead>
+                   <tr>
+                     <th>ID</th>
+                     <th>Timestamp</th>
+                     <th>From</th>
+                     <th>To</th>
+                     <th>Product</th>
+                     <th>Quantity </th>
+                   </tr>
+                  </thead>
+                  <tbody>
+                  {%for d in details%}
+                   <tr>
+                     <td>{{d.mid}}</td>
+                     <td>{{d.ts}}</td>
+                     <td>{{d.frm}}</td>
+                     <td>{{d.to}}</td>
+                     <td>{{d.pname}}</td>
+                     <td>{{d.pqty}}</td>
+                   </tr>
+                   {% endfor %}
+                  </tbody>
+                  </table>
+
+          <!-- Move Modal code-->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top:150px;">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+
+                          <h3 class="modal-title" id="exampleModalLabel">Move Plant</h3>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <form  action="" method="post">
+                          <div class="modal-body">
+                            {{ form.csrf_token() }}
+                            {{form.mprodname.label(class="form-control-label")}}<br>
+                            <div id="prod">
+                              {{form.mprodname(class="form-control form-control-lg")}}
+                            </div>
+                            <div id="var">
+                              {{form.mprodvar.label(class="form-control-label")}}
+                            <br>
+                              {{form.mprodvar(class="form-control form-control-lg")}}
+                            </div>
+                            <div id="from">
+                              {{form.src.label(class="form-control-label")}}<br>
+                              {{form.src(class="form-control form-control-lg")}}
+                            </div>
+                            <div id="to">
+                              {{form.destination.label(class="form-control-label")}}<br>
+                              {{form.destination(class="form-control form-control-lg")}}
+                            </div>
+                            <div class="qty">
+                              {{form.mprodqty.label(class="form-control-label")}}<br>
+                              {{form.mprodqty(class="form-control form-control-lg") }}
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <div class="move" >
+                                {{ form.movesubmit(class="btn btn-primary") }}
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+      <!--end move modal-->            
+                </div>
+                <div class="col-sm-2"></div>
+              </div>
+            </div>
+            <br><br>
+
+
+{% endblock content %}
+{% block footer %}
+  <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+  
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#proxies').dataTable();
+    });
+  </script>
+
+{% endblock %}
+<!-- 
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/view_video.php?viewkey=ph612b4159411c1
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/view_video.php?viewkey=ph61de9a8b333cc
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/view_video.php?viewkey=ph61d1b46f24cf6
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/view_video.php?viewkey=ph6016c126d6f66
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/view_video.php?viewkey=ph61ba3a5e67e82
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/view_video.php?viewkey=ph61819482eed52
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/view_video.php?viewkey=ph61b1f43be661c
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/view_video.php?viewkey=ph61ddd97a763dd
+
+
+https://www.xnxx.com/video-y9bvz37/the_adventures_of_my_strapon_-_step_sisters_lesbian_strapon_amateur_threesome_2_girls_1_guy_cum_kissing_girls_cum_kissing_kiss_with_cum_stepsister_pov_blowjob_threesome_threesome_blowjob_homemade
+
+https://www.xnxx.com/video-114rir57/two_stepsisters_have_fun_lesbian_toy_lesbian_strapon_threesome_homemade_amateur_sex_threesome_blowjob_husband_sharing_stepsis_2_girls_1_guy_kinky_fetish_-_threesome_step_sisters_moore
+
+https://www.xnxx.com/video-yau5hb5/romantic_evening_with_step_sisters._lesbian_kissing_cum_swapping_3some_pantyhose_lesbian_kissing_red_lips_cum_swapping_step_sister_swapping_cum_kissing_girls_pov_blowjob_threesome_amateur
+
+https://www.xnxx.com/pornstar/sisters_moore
+https://www.xnxx.com/pornstar/diann_miller
+https://www.xnxx.com/search/rita-fox
+https://www.xnxx.com/search/april%20storm
+https://www.xnxx.com/search/erika%20korti
+https://www.xnxx.com/pornstar/carrylight
+https://www.xnxx.com/pornstar/amelie-lei
+
+https://www.xnxx.com/video-yowmrde/the_girl_shakes_her_sexy_butt_and_then_fucks_her_hairy_asshole_doggy_style_to_anal_orgasm._amateur_masturbation_hairy_pussy_and_legs_in_stockings.
+
+https://www.xnxx.com/video-143tbz83/8/2_brunettes_1_blonde_smoking_while_giving_1_lucky_guy_a_handjob_swapping_cum
+
+https://www.xnxx.com/video-qn1gp00/teen_that_loves_sex_doing_casting_video_with_lucky_director
+
+https://www.xnxx.com/video-11vf09e7/sweet_girl_takes_big_cock_in_the_ass_-_cum_in_her_ass_part_2_
+
+https://www.xnxx.com/video-w7ehf8d/tight_pussy_hot_petite_young_asian_rides_the_big_black_guy_s_huge_cock_and_takes_all_the_sperm_in_his_balls_into_her_small_mouth_with_a_facial_cumshot
+
+https://www.xnxx.com/video-y9c2n48/homemade_threesome_pov_amateur_sex_3some_big_cock_2_girls_1_guy_ffm_amateur_3some_threesome_sex_threesome_blowjob_pov_amateur_cumshot
+
+https://www.xnxx.com/video-115qz3ce/sharing_husband_s_cock_with_step_sister_threesome_-_blowjob_cumshot_in_mouth_cum_kissing_two_bitches_enjoy_a_delicious_cock_homemade_homevideo_huge_cumshot_on_tongue_brunette_and_redhead_girls
+
+https://www.xnxx.com/video-uthtv3d/teens_private_lesson_turns_into_tight_ass_teen_anal_sex_with_rough_hardcore
+
+https://www.xnxx.com/video-u0p7tac/my18teens_-_babe_suck_big_dick_and_anal_doggystyle_closeup
+
+https://www.xnxx.com/video-u6rbv5b/my18teens_-_teen_suck_big_dick_and_doggy_sex_-_oral_creampie
+
+https://www.xnxx.com/video-10vfur79/big_cock_destroys_mom_s_pussy_and_fills_her_ass_with_cum_anal_creampie_open_hole_in_the_ass
+
+https://www.xnxx.com/video-uolj136/teen_big_ass_suck_big_dick_and_pussy_fucking_-_cum_incredibly
+
+https://www.xnxx.com/video-muh0fd7/girl_makes_her_holes_available_for_the_guys_on_the_beach
+
+https://www.xnxx.com/video-11ulh343/sweet_girl_katrin_teqila_takes_big_dick_in_the_anal_-_big_oral_cumshot
+
+https://www.xnxx.com/video-12vldb49/sweet_babe_with_big_ass_hard_fucked_in_ass_-_anal_creampie
+
+https://www.xnxx.com/video-1143xz5e/cute_teen_with_big_booty_fucked_in_the_anal_-_anal_creampie
+
+https://www.xnxx.com/video-11nukb0c/sweet_babe_takes_big_dick_in_the_anal_-_cumshot_for_face
+
+https://www.xnxx.com/video-11vf09e7/sweet_girl_takes_big_cock_in_the_ass_-_cum_in_her_ass_part_2_
+
+https://www.xnxx.com/video-11e8zl1a/all_holes_penetrated_at_once_amateur_masseuse_european_fucked_hard_in_a_hot_gangbang
+
+https://www.xnxx.com/video-wrrlzec/blonde_blowjob_big_cock_with_anal_plug_and_hardcore_ass_fuck
+
+https://www.xnxx.com/video-11xi8f34/sweet_girl_hard_fucked_in_the_anal_-_big_oral_cumshot
+
+https://www.xnxx.com/video-12mvgj06/the_redheaded_bitch_ritafox_was_fucked_hard_by_two_guys
+
+https://www.xnxx.com/video-wkf69fc/incredible_sex_fucking_in_a_public_railway_station_in_a_rush_hour
+
+https://www.xnxx.com/video-w5ehf0d/young_and_skinny_tight_pussy_brunette_takes_five_guys_in_a_wild_hardcore_gangbang_sex_party_to_empty_their_balls_one_by_one_with_handjob_blowjob_and_true_amateur_hard_and_rough_sex
+
+https://www.xnxx.com/video-wln7ja6/cum_on_a_pregnant_girl_face_with_huge_tits_in_public_street_gang_bang_threesome
+
+https://www.xnxx.com/video-wn0yfa9/cute_young_petite_teen_girl_in_public_street_threesome
+
+https://www.xnxx.com/video-12dbah78/maryana_rose_sucks_two_dicks_at_once._hot_brunette_gets_fucked_hard_in_mouth_and_pussy.
+
+https://www.xnxx.com/video-zjrbh1f/april_storm_a_little_hot_russian_babe_es_banged_hard_by_two_guys
+
+https://www.xnxx.com/video-zj67b8a/beauty_teenager_with_big_booty_takes_long_dick_in_asshole
+
+https://www.xnxx.com/video-xzkehca/hard_anal_fuck_my_horny_milf_-_big_anal_gape
+
+https://www.xnxx.com/video-11se9r4c/i_fuck_my_girlfriend_s_sister_in_the_ass_with_a_big_dick_-_cute_teen_liked_hardcore_fucks.
+
+https://www.xnxx.com/video-soad120/i_fuck_my_teengirl_in_anal
+
+https://www.xnxx.com/video-u8cg5b5/dad_fucked_stepdaughter_in_big_anal_gape_-_my_teen_ass
+
+https://www.xnxx.com/video-l44d574/fucked_licked_and_fisted_skinny_amateur_teen_hot_wife_with_perfect_tits_and_ass.
+
+https://www.xnxx.com/video-11scfv10/hardcore_anal_sex_with_big_tits_teen_having_loud_anal_orgasm_while_ass_fucked_rough.
+
+https://www.xnxx.com/video-r784j38/fuck_my_step_redhead_sister_in_ass
+
+https://www.xnxx.com/video-wyx23fd/cute_teen_tries_furious_anal_fuck_and_powerful_oral_sex
+
+https://www.xnxx.com/video-sf7izf6/fuck_my_redhead_step_sister_in_anal
+
+https://www.xnxx.com/video-10733p60/cute_redhead_teen_tries_hard_anal_fuck_by_big_dick
+
+https://www.xnxx.com/video-w6s3z3f/hard_fuck_in_the_all_holes_my_new_teen
+
+https://www.xnxx.com/video-10s52ddf/teen_hard_fucked_in_the_ass_by_a_big_cock_-_screams_and_groans
+
+https://www.xnxx.com/video-11408zdf/double_penetration_sweet_girl_with_big_booty_-_fuck_in_the_ass_full_
+
+https://www.xnxx.com/video-zd63x03/beauty_teenager_jessie_hard_fuck_in_the_ass_-_two_cock_in_all_holes
+
+https://www.xnxx.com/video-10seod78/dp_sweet_teenager_-_hard_anal_fuck_full_versia_
+
+https://www.xnxx.com/video-14029xee/sweet_teenager_takes_in_the_anal_big_dick_-_cum_on_face_-_full_versia
+
+https://www.xnxx.com/video-11ud9l9b/cute_girl_tried_hard_anal_sex-_big_anal_gape_oral_comshot_closeup
+
+https://www.xnxx.com/video-13zd9p15/asian_princess_selina_takes_in_anal_big_dick_-_cumshot_on_face_full_scene_
+
+https://www.xnxx.com/video-tur818c/first_assfucking_a_big_cock_my_new_shy_teengirl_full_version_-_my_teen_ass
+
+https://www.xnxx.com/video-10s52ddf/teen_hard_fucked_in_the_ass_by_a_big_cock_-_screams_and_groans
+
+https://www.xnxx.com/video-114smze6/sweet_teenager_takes_big_dick_in_the_anal_-_many_cum_for_face
+
+https://www.xnxx.com/video-11xfwp4f/sweet_babe_big_booty_tried_hard_anal_fuck_-_big_anal_gape_cumshot
+
+https://www.xnxx.com/video-12vldb49/sweet_babe_with_big_ass_hard_fucked_in_ass_-_anal_creampie
+
+https://www.xnxx.com/video-1142rxa1/asian_teen_takes_big_dick_in_the_anal
+
+https://www.xnxx.com/video-10faad6c/beautiful_asiaan_teenager_triesd_harf_anal_fuck_and_deepthroat
+
+https://www.xnxx.com/video-11xfwp4f/sweet_babe_big_booty_tried_hard_anal_fuck_-_big_anal_gape_cumshot
+
+https://www.xnxx.com/video-1492cjee/small_teenager_gets_fuck_by_monster_horse_dick_-_huge_dripping_creampie
+
+https://www.xnxx.com/video-14dwhbd0/don_t_forget_you_promised_not_to_tell_anyone_about_our_sex_undefined_
+
+https://www.xnxx.com/video-14734zee/busty_teen_redhead_does_anal_with_boyfriend_-_full_video_
+
+https://www.xnxx.com/video-14awn99d/family_strokes_-_my_new_gf_is_surprised_to_see_me_fucking_my_stepsis_everywhere_but_she_likes_it
+
+https://www.xnxx.com/video-147b23ad/big_boobs_slut_got_cum_in_her_throat
+
+https://www.xnxx.com/video-1465t10a/kissing_challenge_with_mimi
+
+https://www.xnxx.com/video-14ey6b37/i_was_a_little_shy_but_this_whore_helped_me_relax_undefined_
+
+https://www.xnxx.com/video-14632pff/i_have_a_mouth_full_of_semen
+
+https://www.xnxx.com/video-14cisz9d/jamie_and_serina_threesome
+
+https://www.xnxx.com/video-14dvq350/stepmother_herself_wanted_to_try_anal_sex_undefined_
+
+https://www.xnxx.com/video-14fumr79/boyfriend_and_girlfriend_go_long_boarding_and_have_sex_
+
+https://www.xnxx.com/video-14cnil70/wife_invited_escort_girl_for_her_husbund_
+
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/channels/teen-creamery
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/model/mmknoxxx
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/model/bellapetit
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/view_video.php?viewkey=ph60d29848408b0
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/model/collegecouple6996
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/model/sunnyways
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/model/rawproductions
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/model/iworshipherbody
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/model/emma-rae-little
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/model/lily-fantasy
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/model/sabrinaextrasmall
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/model/runsonsin
+
+
+
+
+ -->

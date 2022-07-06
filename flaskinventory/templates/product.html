@@ -1,129 +1,169 @@
-{% extends "overview.html" %}
+{% extends "base.html" %} 
+{% block title %}Library{% endblock title%}
+{% block head %} 
+
+<!-- Data Table -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.css">
+<!-- Data Table --> 
+
+{% endblock %}
+
 {% block content %}
-<div class="container">
-  {% with messages = get_flashed_messages(with_categories=true) %}
-     {%if messages %}
-          {%for category, message in messages %}
-            <div class="alert alert-{{ category }}">
-               <h4 style="text-align:center;">{{ message }}</h4>
+            <br><br>
+            <div class="card wow fadeInRight" data-wow-delay="0.3s">
+              <div class="card-header">
+                <div class="container">
+                  <h1>Library</h1>
+                  <div class="container">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                       {%if messages %}
+                        {%for category, message in messages %}
+                          <div class="alert alert-{{ category }}">
+                            <h4 style="text-align:center;">{{ message }}</h4>
+                          </div>
+                        {%endfor%}
+                      {%endif %}
+                    {%endwith%}
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div>
+                  <h3 style="display: inline-block;margin:0;"> Manage Plant or Seed inventory</h3>
+                  <button type="button" class="btn btn-add" data-toggle="modal" data-target="#exampleModal">
+                   <span class="btn-icon-add"><i class="glyphicon glyphicon-plus"></i></span>Add Plant</button>
+                </div>
+                <br>
+                <div class="container">
+                  <table id="proxies" class="table table-sm"><!--display thead-light nowrap table-responsive">   table-hover  -->
+                    <thead>
+                      <tr> <!-- style="text-align:center"> -->
+                        <th>ID</th>
+                        <th>Plant Name</th>
+                        <th>Variety</th>
+                        <th>Seed Qty</th>
+                        <th>Edit</th>
+                        <th>Remove </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for d in details %}
+                      <tr>
+                        <td>{{d.prod_id}}</td>
+                        <td>{{d.prod_name}}</td>
+                        <td>
+                          <a href="{{ url_for('main.dataCard', p_id = d.prod_id,type =d.variety) }}">
+                          <button type="button" class="btn btn-primary">
+                          <span class="btn-icon"><i class="glyphicon glyphicon-zoom-in"></i></span>{{d.variety}}</button></a>
+                        </td>
+                        <td>{{d.prod_qty}}</td>
+                        <td>
+                          <button type="button" class="btn btn-edit btn-icon" data-toggle="modal" data-target = "#edit{{d.prod_id}}" >
+                          <i class="glyphicon glyphicon-pencil"></i></button>
+                        </td>
+                        <td>
+                          <a href="{{ url_for('main.delete', p_id = d.prod_id,type ='product') }}">
+                            <button type="button" class="btn btn-delete btn-icon">
+                            <i class="glyphicon glyphicon-trash"></i></button></a>
+                        </td>
+                      <!--editmodal-->
+                          <div class="modal fade" id="edit{{d.prod_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true" style="margin-top:150px;">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h3 class="modal-title" id="exampleModalLabel">Edit Library</h3>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <form  action="" method="POST" id="">
+                                  <div id="modal-cont" class="modal-body" >
+                                  
+                                    {{ eform.csrf_token() }}
+                                    <input type="hidden" name="Plantid" value="{{d.prod_id}}"/>
+                                    <input type="hidden" name="Plantname" value="{{d.prod_name}}"/>
+                                    {{ eform.editname.label(class="form-control-label")}}<br>
+                                    {{ eform.editname(class="form-control form-control-lg",placeholder=d.prod_name) }}
+                                    <input type="hidden" name="Variety" value="{{d.variety}}"/>
+                                    {{eform.editvar.label(class="form-control-label")}}<br>
+                                    {{ eform.editvar(class="form-control form-control-lg",placeholder=d.variety) }}
+                                    <input type="hidden" name="Quantity" value="{{d.prod_qty}}"/>
+                                    {{eform.editqty.label(class="form-control-label")}}<br>
+                                    {{eform.editqty(class="form-control form-control-lg",placeholder=d.prod_qty)}}
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <div>
+                                      {{ eform.editsubmit(class="btn btn-primary") }}
+                                    </div>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                    <!--editmodal end-->
+                      </tr>
+                      {%endfor%}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="card-footer"></div>
             </div>
-          {%endfor%}
-    {%endif %}
-  {%endwith%}
-</div>
-<div class="container">
+          <br><br>
 
-<h1>Products</h1>
-<div >
-  <h3 style="display: inline-block;margin:0;"> Manage products in your central Warehouse</h3>
-  <button type="button" class="btn btn-add" data-toggle="modal" data-target="#exampleModal">
-   <span class="btn-icon-add"><i class="glyphicon glyphicon-plus"></i></span>Add Product</button>
-</div>
+                
+    <!-- add Modal code-->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top:150px;">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h3 class="modal-title" id="exampleModalLabel">Add Plant</h3>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form  action="" method="POST" id="products">
+                  <div id="modal-cont" class="modal-body" >
+                    
+                      {{ form.csrf_token() }}
+                      {{ form.prodname.label(class="form-control-label")}}<br>
+                      {{ form.prodname(class="form-control form-control-lg") }}
 
-<!-- add Modal code-->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top:150px;">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title" id="exampleModalLabel">Add Product</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div id="modal-cont" class="modal-body" >
-        <form  action="" method="POST" id="products">
-          {{ form.csrf_token() }}
-          {{form.prodname.label(class="form-control-label")}}<br>
-          {{ form.prodname(class="form-control form-control-lg") }}
+                      {{ form.prodvar.label(class="form-control-label")}}<br>
+                      {{ form.prodvar(class="form-control form-control-lg") }}
 
-          {{form.prodqty.label(class="form-control-label")}}<br>
-          <div class="prodname">
-            {{form.prodqty(class="form-control form-control-lg")}}
+                      {{ form.prodqty.label(class="form-control-label")}}<br>
+                      {{ form.prodqty(class="form-control form-control-lg") }}
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <div >
+                      {{ form.prodsubmit(class="btn btn-primary") }}
+                    </div>
+                  </div>
+              </form>
+              </div>
+            </div>
           </div>
+    <!--end of modal design-->
 
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <div >
-          {{ form.prodsubmit(class="btn btn-primary") }}
-        </div>
-      </div>
-    </form>
-   </div>
- </div>
-
-</div>
-<!--end of modal design-->
-
-<table class="table table-hover">
-<thead>
- <tr>
-   <th>ID</th>
-   <th>Product Name</th>
-   <th>Unallocated Quantity</th>
-   <th></th>
-   <th></th>
- </tr>
-</thead>
-<tbody>
-  {% for d in details %}
-  <tr>
-   <td>{{d.prod_id}}</td>
-   <td>{{d.prod_name}}</td>
-   <td>{{d.prod_qty}}</td>
-   <td>
-       <button type="button" class="btn btn-edit" data-toggle="modal" data-target = "#edit{{d.prod_id}}" >
-       <span class="btn-icon"><i class="glyphicon glyphicon-pencil"></i></span>Edit</button>
-
-   </td>
-   <!--editmodal-->
-   <div class="modal fade" id="edit{{d.prod_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top:150px;">
-     <div class="modal-dialog" role="document">
-       <div class="modal-content">
-         <div class="modal-header">
-           <h3 class="modal-title" id="exampleModalLabel">Edit Product</h3>
-           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-             <span aria-hidden="true">&times;</span>
-           </button>
-         </div>
-         <div id="modal-cont" class="modal-body" >
-           <form  action="" method="POST" id="products">
-             <input type="hidden" name="productid" value="{{d.prod_id}}"/>
-             <input type="hidden" name="productname" value="{{d.prod_name}}"/>
-             {{ eform.csrf_token() }}
-             {{eform.editname.label(class="form-control-label")}}<br>
-             {{ eform.editname(class="form-control form-control-lg",placeholder=d.prod_name) }}
-
-             {{eform.editqty.label(class="form-control-label")}}<br>
-             {{eform.editqty(class="form-control form-control-lg",placeholder=d.prod_qty)}}
-         </div>
-         <div class="modal-footer">
-           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-           <div >
-              <!--<a href="{{ url_for('product', p_id = d.prod_id) }}">-->
-             {{ eform.editsubmit(class="btn btn-primary") }}
-             <!--</a>-->
-           </div>
-         </div>
-       </form>
-      </div>
-    </div>
-
-   </div>
-   <!--editmodal end-->
-   <td>
-      <a href="{{ url_for('delete', p_id = d.prod_id,type ='product') }}">
-       <button type="button" class="btn btn-delete">
-       <span class="btn-icon"><i class="glyphicon glyphicon-trash"></i></span>Delete</button></a>
-   </td>
- </tr>
-{%endfor%}
-</tbody>
-
-</table>
-<script type="text/javascript">
-
-</script>
 
 {% endblock content %}
+
+{% block footer %}
+  <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+  
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#proxies').dataTable();
+    });
+  </script>
+
+{% endblock %}
+#https://hqporner.com/hdporn/19435-OrgyMax-_Horny_overtime_pepper.htmlhttps://hqporner.com/hdporn/75823-Lizz_Tayler_and_Erica_Fontes_-_Group_Sex.html

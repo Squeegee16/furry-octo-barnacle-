@@ -1,0 +1,360 @@
+{% extends "base.html" %} 
+{% block title %}Plant Data Card{% endblock title%}
+
+{% block head %} 
+
+{% endblock %} 
+
+{% block content %} 
+
+<br><br>
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-8">
+    <div class="card wow fadeInRight">
+      <div class="card-header">
+        <h3><strong>Plant Data Card</strong></h3>
+        <h4><strong>Family:</strong> {{plantdata[1]}} <strong>Variety:</strong> {{ plant }}</h4>
+        <div class="btn-group">
+          <button type="button" class="btn btn-outline-primary" disabled>Tombstone Data</button>
+          <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#Compatibility"></span>Compatibility</button>
+          <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#planting"></span>Interval Planting</button>
+          <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#notes"></span>Notes</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-1"></div>
+            <div class="col-sm-4">
+              <img class="card-img-top mr-3 mt-3 float-left img-fluid rounded border border-left-0 " src="{{ url_for('static',filename='media/'+'plpic/'+plantdata[3]) }}" alt="plant image">
+            </div>
+            <div class="col-sm-7">
+              <table class="table-sm table-bordered table-hover table-responsive">
+                <thead>
+                  <tr>
+                    <th>Hardiness:</th>
+                    <td>{{plantdata[9]}}</td>
+                  </tr>
+                  <tr>
+                    <th>Planting Date:</th>
+                    <td>{{plantdata[10]}}</td>
+                  </tr>
+                  <tr>
+                    <th>Days to Maturity:</th>
+                    <td>{{plantdata[5]}}</td>
+                  </tr>
+                  <tr>
+                    <th>Germination Time:</th>
+                    <td>{{plantdata[7]}}</td>
+                  </tr>
+                  <tr>
+                    <th>Sowing Type</th>
+                    <td>{{plantdata[6]}}</td>
+                  </tr>
+                </thead>
+             </table>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <table class="table-sm table-hover">
+              <thead class="thead-light">
+                <tr>
+                  <th>Seed Sow Depth</th>
+                  <th></th>
+                  <th>Sow Spacing Min</th>
+                  <th></th>
+                  <th>Sow Spaceing Max</th>
+                  <th></th>
+                  <th>Row Spacing Min</th>
+                  <th></th>
+                  <th>Row Spaceing Max</th>
+                </tr>
+              </thead>
+              <tr>
+                <td>
+                  {{plantdata[12]}}
+                </td>
+                <td></td>
+                <td>
+                  {{plantdata[13]}}
+                </td>
+                <td></td>
+                <td>
+                  {{plantdata[14]}}
+                </td>
+                <td></td>
+                <td>
+                  {{plantdata[15]}}
+                </td>
+                <td></td>
+                <td>
+                  {{plantdata[16]}}
+                </td>
+              </tr>
+              <tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="{{ url_for('main.product') }}">
+        <button type="button" class="btn btn-info float-left" ><strong>Return</strong></button></a>
+        <button type="button" class="btn btn-edit float-right" data-toggle="modal" data-target = "#edit{{plantdata[1]}}" >
+        <span class="btn-icon"><i class="glyphicon glyphicon-pencil"></i></span>Edit</button>
+      </div>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+</div>
+<br><br>
+
+<!--moar data modal-->
+<div class="modal fade" id="Compatibility">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Plant Compatibility</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="container">
+          <p><h3>Plant Family Groups</h3></p>
+          <br>
+        </div>
+        <table class="table-sm">
+          <thead class="thead-light">
+            <tr>
+              <th style="vertical-align:bottom;">Cabbage</th>
+              <th style="vertical-align:bottom;">Carrot</th>
+              <th style="vertical-align:bottom;">Celery</th>
+              <th style="vertical-align:bottom;">Bean</th>
+              <th style="vertical-align:bottom;">Beet</th>
+              <th style="vertical-align:bottom;">Onion</th>
+            </tr>
+          </thead>
+          <body>
+            <tr>
+                {% for l in range(6)%} 
+                <td>
+                  {% if plantdata[l1+l] == "'True'" %}
+                    <button type="button" class="btn btn-success"><i class ="glyphicon glyphicon-ok-sign"></i></button>
+                  {% else %}
+                    <button type="button" class="btn btn-danger"><i class ="glyphicon glyphicon-minus-sign"></i></button>
+                  {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+          </body>
+        </table>
+      <br>
+        <table class="table-sm responsive">
+          <thead class="thead-light">
+            <tr>
+              <th style="vertical-align:bottom;">Pea</th> <!-- transform: rotate(-90deg);-->
+              <th style="vertical-align:bottom;">Pepper</th>
+              <th style="vertical-align:bottom;">Potato</th>
+              <th style="vertical-align:bottom;">Squash</th>
+              <th style="vertical-align:bottom;">Tomato</th>
+            </tr>
+          </thead>
+          <body>
+            <tr>
+                {% for l in range(5)%} 
+                <td>
+                  {% if plantdata[l1+l+6] == "'True'" %}
+                    <button type="button" class="btn btn-success"><i class ="glyphicon glyphicon-ok-sign"></i></button>
+                  {% else %}
+                    <button type="button" class="btn btn-danger"><i class ="glyphicon glyphicon-minus-sign"></i></button>
+                  {% endif %}
+                </td>
+                {% endfor %}
+                <td></td>
+            </tr>
+          </body>
+        </table>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--moar data modal pt2-->
+<div class="modal fade" id="notes">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Plant Notes</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="container">
+          <p>{{plantdata[28]}}</p>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- planting dates modal -->
+
+<div class="modal fade" id="planting">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Planting Dates</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="container">
+          <span><h4 style="text-align:center">Frost Dates</h4>
+            <h3 style="text-align:center"><strong>Spring date:</strong>{{frost[2]}}</h3>
+            <h3 style="text-align:center"><strong>Fall date:</strong>{{frost[1]}} </h3>
+          </span>
+        </div>
+        <div class="container">
+          <table class="table-sm responsive">
+            <thead>
+              <span><h4 style="text-align:center">Interval Planting Dates</h4></span>
+            </thead>
+            <tbody>
+              {% for i in pi %}
+              <td  style="width: 1px; padding: 1px;text-align:center;">{{ i }}</td>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--editmodal-->
+<div class="modal fade" id="edit{{plantdata[1]}}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h3 class="modal-title">Edit Plant Data</h3>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="container">
+            {% for field, errors in form.errors.items() %}
+            <div class="alert alert-warning">
+              <h4 style="text-align:center;">{{ ', '.join(errors) }}</h4>
+            </div>
+            {% endfor %}
+            <form method="POST" enctype="multipart/form-data" action="">
+              {{ form.csrf_token() }}
+              <div class="form-group">
+                <h4>General Information</h4>
+                {{ form.epdhardiness(class="form-control", placeholder="Hardiness Type") }}
+                {{ form.epdplantdate(class="form-control", placeholder="Reccomened Planting Date DD-MMM") }}
+                {{ form.epdgermination(class="form-control", placeholder="Germination Time in days") }}
+                {{ form.epdDTM(class="form-control", placeholder="Days to Maturity") }}
+                {{ form.epdsowtype(class="form-control", placeholder="Sowing Type") }}
+              </div>
+              <div class="form-group">
+                <h4>Planting Information</h4>
+                {{ form.epdseeddepth(class="form-control", placeholder="Sowing Depth in inches") }}
+                {{ form.epdseedspacemin(class="form-control", placeholder="Minimum Seed spacing inches") }}
+                {{ form.epdseedspacemax(class="form-control", placeholder="Maximum Seed spacing inches") }}
+                {{ form.epdrowspacemin(class="form-control", placeholder="Minimum Row spacing inches") }}
+                {{ form.epdrowspacemax(class="form-control", placeholder="Maximum Row spacing inches") }}
+              </div>
+              <div class="form-group">
+                <h4>Plant Variety Compatibilites</h4>
+                <span>
+                {{form.epdfamilyCabbage.label}}
+                {{ form.epdfamilyCabbage() }}
+                {{form.epdfamilyCarrot.label}}
+                {{ form.epdfamilyCarrot() }}
+                {{form.epdfamilyCelery.label}}
+                {{ form.epdfamilyCelery() }}
+                {{form.epdfamilyBean.label}}
+                {{ form.epdfamilyBean() }}
+                </span>
+                <span>
+                {{form.epdfamilyBeet.label}}
+                {{ form.epdfamilyBeet() }}
+                {{form.epdfamilyOnion.label}}
+                {{ form.epdfamilyOnion() }}
+                {{form.epdfamilyPea.label}}
+                {{ form.epdfamilyPea() }}
+                {{form.epdfamilyPepper.label}}
+                {{ form.epdfamilyPepper() }}
+                </span>
+                <span>
+                {{form.epdfamilyPotato.label}}
+                {{ form.epdfamilyPotato() }}                  
+                {{form.epdfamilySquash.label}}
+                {{ form.epdfamilySquash() }}
+                {{form.epdfamilyTomato.label}}
+                {{ form.epdfamilyTomato() }}
+                </span>
+              </div>
+              <div class="form-group">
+                <h4>{{ form.epdpic.label() }}</h4>
+                <span>
+                  {{ form.epdpic(class="form-control-file") }}
+                  {% if form.epdpic.errors %}
+                    {% for error in form.epdpic.errors %}
+                      <span class="text-danger">{{ error }}</span>
+                    {% endfor %}
+                  {% endif %}
+                </span>
+              </div>
+              <br>
+              <div class="form-group">
+                {{ form.epdsubmit(class="btn btn-primary")}}
+              </div>
+            </form>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+{% block footer %}
+<script type="text/javascript">
+</script>
+
+{% endblock %}
+<!-- https://hqwo.cc/player/1a8600680b8d36384a03704f7cb02a84? -->
