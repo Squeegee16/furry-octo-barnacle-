@@ -1,0 +1,75 @@
+{% extends "base.html" %} 
+{% block title %}Garden Archive{% endblock title%}
+{% block head%}
+<!-- Data Table -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+
+{% endblock%}
+{% block content %}
+            <br><br>
+            <div class="card wow fadeInRight">
+              <div class="card-header">
+                <div class="row">
+                  <div class="container">
+                    <h1 style="text-align:center">Archive Overview</h1>
+                    <div class="container" style="margin-top:15px;">
+                      {% with messages = get_flashed_messages(with_categories=true) %}
+                        {%if messages %}
+                          {%for  category,message in messages %}
+                            <div class="alert alert-{{category}}">
+                              <h4 style="text-align:center;">{{ message }}</h4>
+                            </div>
+                          {%endfor%}
+                        {%endif %}
+                      {%endwith%}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+              <h3 style="display: inline-block;margin-bottom:15px;"> View Planted items by year and location</h3>
+                <table id="proxies" class="table table-sm">
+                  <thead>
+                    <tr>
+                      <th>Planting Year</th>
+                      <th>ID</th>
+                      <th>Plant</th>
+                      <th>Variety</th>
+                      <th>Location</th>
+                      <th>Quantity</th>
+                      <th>Planted date</th>
+                      <th>Archive date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {%for b in balance%}
+                    <tr>
+                      <td>{{b.planted_year}}</td>
+                      <td>{{b.item_id}}</td>
+                      <td>{{b.product}}</td>
+                      <td>{{b.var}}</td>
+                      <td>{{b.location}}</td>
+                      <td>{{b.quantity}}</td>
+                      <td>{{b.planted_date}}</td>
+                      <td>{{b.xfer_date}}</td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              <div class="card-footer"></div>
+            </div>
+            <br><br>  
+{% endblock %}
+{% block footer %}
+  <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+  
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#proxies').dataTable();
+    });
+  </script>
+{% endblock %}

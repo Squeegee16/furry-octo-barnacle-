@@ -1,0 +1,45 @@
+﻿Family,Variety,Days to Maturity,Sow Type,germination,Planting Interval,Hardiness,Reccomended planting date,Last Planting Date,Seed Planting Depth,Seed Spacing ,Seed Spacing max,Seed Row Spacing,Seed Row Spacing max,Bean Family,Beet Family,Cabbage Family,Carrot Family,Celery Family,Onion Family,Pea Family,Pepper Family,Potato Family,Squash Family,Tomato Family,Asparagus,Basil,Broccoli,Cauliflower,Chamomile,Chard,Celery,Corn,Cucumber,Dill,Eggplant,Garlic,Kohlrabi,Leeks,Lettuce,Melon,Mint,Parsley,Radish,Rhubarb,Rosemary,Sage,Spinach,Strawberry,Summer Savoury,Thyme,Turnip,Notes
+Onion,Candy,85,Transplant,10,725,Cold,27-Feb,04-Jul-21,0.5,3,5,12,18,0,1,1,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1,1,0,0,1,"8-10 weeks before last frost. xplant near last frost"
+Onion,Green,70,Direct,7,35,Cold,01-May,19-Jul-21,0.25,1,3,4,6,0,1,1,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1,1,0,0,1,0
+Onion,Tokyo Long,70,Direct,7,35,Cold,01-May,19-Jul-21,0.25,1,3,4,6,0,1,1,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1,1,0,0,1,0
+Broccoli,Waltham29,90,Direct,0,14,Warm,01-May,29-Jun-21,0.25,18,24,30,30,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,0,0,0,1,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,"4-6 wks before last frost.spring and fall. start inside 7wks"
+Broccoli,Italian,60,Direct,0,14,Warm,01-May,29-Jul-21,0.25,18,24,30,30,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,0,0,0,1,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,6wks before last frost
+Corn ,Honey and Cream,80,Direct,0,0,Warm,16-May,09-Jul-21,0.5,12,12,12,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Peas,Sugar Snap,65,Direct,0,21,Warm,03-Apr,24-Jul-21,1,3,4,12,12,1,0,0,1,1,1,0,1,0,0,1,0,0,0,0,0,0,1,1,1,0,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,cover shoud lbe used
+Peas,Snow - Green Beauty,98,Direct,0,14,Warm,01-Apr,21-Jun-21,1,3,4,12,12,1,0,0,1,1,1,0,1,0,0,1,0,0,0,0,0,0,1,1,1,0,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,early march
+Peas,Pole - Scaret Runner,65,Direct,0,7,Warm,01-May,24-Jul-21,2,1,2,16,16,0,0,1,1,0,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Beans,Bush - Yellow,55,Direct,0,14,Warm,01-May,03-Aug-21,1,12,12,12,12,0,0,1,1,0,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Beans,Pole - Blue Lake,65,Direct,0,14,Warm,31-May,16-Aug-21,1,4,6,24,24,0,0,1,1,0,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Celery,Generic,120,Direct,0,21,Warm,01-May,30-May-21,0.125,8,12,24,32,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+Cabbage,Generic,100,Direct,0,0,Cold,01-Jun,19-Jun-21,0.5,18,24,24,36,2,1,0,0,0,0,1,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
+Cucumbers,English,60,Direct,10,21,Warm,01-May,29-Jul-21,1,6,18,48,72,1,1,0,1,0,1,1,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,late spring
+Squash,Butternut,90,Direct,0,0,Cool,22-May,13-Jul-21,2.5,3,4,72,96,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,see pumpkins
+Herb ,Rosmary,90,Direct,0,35,Cool,15-May,13-Jul-21,0.125,24,36,24,36,1,0,0,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"provide monthly feedings of liquid fertilizer. Keep watered in hot weather. Mulch around all rosemary plants as cold weather approaches. If their roots freeze in times of hard frost. the plants will die."
+Herb,Basil,68,Direct,0,14,Warm,01-May,21-Jul-21,0.25,12,18,18,24,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7 days after last frost
+Herb ,Parsley,80,Direct,0,28,Cold,01-May,09-Jul-21,0.25,6,8,7,10,0,0,0,1,0,1,0,0,0,0,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,soak in water 24 hours before planting.
+Herb,Oregano,50,Direct,0,15,Warm,31-May,08-Aug-21,0.25,12,12,18,24,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Herb,Thyme,75,Direct,0,21,Cold,01-May,14-Jul-21,0.25,12,12,16,24,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,1,0,0,1,0,1,0,0
+Onions, Garlic - Fall planted,150,Direct,0,0,Cold,30-Aug,08-Jun-22,2,6,8,12,12,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0,let soil dry 3-4 wks before harvest
+Greens,Mache,50,Direct,0,14,Cold,01-May,08-Aug-21,0.25,2,2,12,12,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,"cool and mild conditions. good for cold frames .pick at 2.5 in"
+Greens,Claytona,45,Direct,0,10,Cold,01-May,13-Aug-21,0.25,1,1,12,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"4-6 prior to last frost.early spring -mid spring& late summer to early fall"
+Spinach ,King of Denmark,50,Direct,0,14,Warm,01-May,01-Aug-21,0.5,2,2,6,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"spring and fall"
+Spinach ,Covair,45,Direct,0,10,Warm,01-May,06-Aug-21,0.5,2,2,12,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"spring and fall"
+Greens,Nasturtium - bush,45,Direct,18,0,Cool,17-Apr,13-Aug-21,0.5,12,12,12,12,1,1,1,1,1,0,1,1,0,0,1,0,0,1,1,0,1,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,1,0,0,0,"no blooms if too much nitrogen" 
+Greens,Nasturtium - tall climber,45,Direct,0,0,Cool,01-May,13-Aug-21,0.5,12,12,12,12,1,1,1,1,1,0,1,1,0,0,1,0,0,1,1,0,1,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,1,0,0,0,"no blooms if too much nitrogen" 
+Greens,Lettice - Romaine,70,Direct,0,14,Cool,01-May,19-Jul-21,0.125,8,12,12,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Carrots,Napoli,55,Direct,17,18,Cold,01-May,03-Aug-21,0.5,5,8,12,18,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"early spring"
+Greens,Mesclun,40,Direct,0,14,Cold,01-May,18-Aug-21,0.5,8,12,12,18,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"may - june. mid september fwd"
+Greens,Lettice - Iceburgy,75,Direct,0,10,Cold,01-Apr,14-Jul-21,0.5,8,12,18,18,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"harvest before hot weather"
+Carrots,Red Cord Danvers,74,Direct,17,18,Cold,01-May,15-Jul-21,0.5,5,8,12,18,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Tomatoes,Tiny Tim,50,Transplant,7,21,Warm,13-Mar,08-Aug-21,0.5,24,36,36,36,1,0,1,1,0,1,0,1,0,0,0,1,1,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,"6-8 weeks before last frost"
+Tomatoes,Sweet Million,60,Transplant,7,21,Warm,13-Mar,29-Jul-21,0.5,24,36,36,48,1,0,1,1,0,1,0,1,0,0,0,1,1,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Tomatoes,Golden Cherry,60,Transplant,7,21,Warm,13-Mar,29-Jul-21,0.5,24,36,36,48,1,0,1,1,0,1,0,1,0,0,0,1,1,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,"use 1 Tbsp of Epsom salts per gallon"
+Tomatoes,Roma,65,Transplant,7,21,Warm,13-Mar,24-Jul-21,0.5,24,36,36,48,1,0,1,1,0,1,0,1,0,0,0,1,1,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Peppers,Bell - Cali wonder,75,Transplant,0,21,Hot,06-Mar,14-Jul-21,0.25,18,24,24,24,0,1,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,1,0,0,1,0,0,0,0,"6-8 weeks before last frost"
+Asparagus,Generic,1095,Transplant,0,0,Cool,06-Mar,26-Sep-24,0.25,1,1,18,18,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,"digging a generous amount of compost. then dig a 10" trench. Form mounds of soil at the bottom of the trench about 12in apart. Set each crown on top of a mound and drape the roots over the mound like a wig over a head. This enables the roots to establish themselves faster as they will get even moisture and nutrients. The crowns should be at least 2-3 below the soil surface"
+Pumpkin,Generic,120,Transplant,10,0,Warm,10-Apr,30-May-21,1,18,36,72,120,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"soak 4-6 seeds for 2 hours before planting in a hill mounded 6 inches. keep moist. slow watering. likes phosphorus"
+Peppers,Hot,85,Transplant,0,21,Hot,06-Mar,04-Jul-21,0.25,18,24,24,24,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Beans,Pole - Carminat,70,Direct,0,14,Warm,01-May,19-Jul-21,2,6,16,16,16,0,0,1,1,0,0,1,0,1,0,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"plant seeds in a slight soil mound"
+Herb,Lemon balm,50,Transplant,0,0,Warm,02-Mar,08-Aug-21,0.25,12,24,12,24,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Onion,Garlic - Spring planted,150,Direct,10,0,Cold,01-May,14-May-21,2,6,8,12,12,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0,0
+Potatoes,Generic,85,Direct,10,28,Cool,01-May,17-Sep,4.0,8,12,24,36,1,0,1,1,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0,0,"Don't use fresh manure causes scab likes to be kept moist with lots of mature compost. Harvest 2-3 weeks after flowering or until frost"

@@ -1,0 +1,153 @@
+{% extends "base.html" %} 
+{% block title %}Transfers{% endblock title%}
+{% block head %}
+<!-- Data Table -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<!--   <script type = "text/javascript"  src="https://cdn.datatables.net/plug-ins/1.10.15/dataRender/datetime.js"></script> -->
+{% endblock%}
+{% block content %}
+            <br><br>
+            <div class="card wow fadeInRight" data-wow-delay="0.3s">
+              <div class="card-header">
+                <div class="row">
+                  <div class="container">
+                    <h1 style="text-align:center">Garden Management System</h1>
+                    <div class="container">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                       {%if messages %}
+                            {%for category, message in messages %}
+                              <div class="alert alert-{{ category }}">
+                                <h4 style="text-align:center;">{{ message }}</h4>
+                              </div>
+                            {%endfor%}
+                      {%endif %}
+                    {%endwith%}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="container">
+                  <h1>Transfers</h1>
+                    <button type="button" class="btn btn-add" data-toggle="modal" data-target="#exampleModal">
+                    <span class="btn-icon-add"><i class="glyphicon glyphicon-plus"></i></span>Move Plants</button>
+                    <h3 style="display: inline-block;margin:0;"> Plant Location Management</h3>
+                  </div>
+                <table id="proxies" class="table table-sm">
+                <thead>
+                 <tr>
+                   <th>ID</th>
+                   <th>Timestamp</th>
+                   <th>From</th>
+                   <th>To</th>
+                   <th>Product</th>
+                   <th>Quantity </th>
+                 </tr>
+                </thead>
+                <tbody>
+                {%for d in details%}
+                 <tr>
+                   <td>{{d.mid}}</td>
+                   <td>{{d.ts}}</td>
+                   <td>{{d.frm}}</td>
+                   <td>{{d.to}}</td>
+                   <td>{{d.pname}}</td>
+                   <td>{{d.pqty}}</td>
+                 </tr>
+                 {% endfor %}
+                </tbody>
+                </table>
+
+        <!-- Move Modal code-->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top:150px;">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+
+                        <h3 class="modal-title" id="exampleModalLabel">Move Plant</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form  action="" method="POST">
+                          {{ form.csrf_token() }}
+                          <div class="form-group">
+                            <span>                          
+                              {{form.mprodname.label}}<br>
+                              {{form.mprodname()}}
+                            </span>    
+                          </div>
+                          <div class="form-group">
+                            <span>
+                              {{form.mprodvar.label}}<br>
+                              {{form.mprodvar()}}
+                            </span>
+                          </div>
+                          <div class="form-group">
+                            <span>
+                              {{form.src.label}}<br>
+                              {{form.src()}}
+                          </span>
+                          </div>
+                          <div class="form-group">
+                            <span>
+                              {{form.destination.label}}<br>
+                              {{form.destination()}}
+                            </span>
+                          </div>
+                          <div class="form-group">
+                            <span>                            
+                              {{form.mprodqty.label}}<br>
+                              {{form.mprodqty()}}
+                            </span>
+                          </div>
+                          <div class="form-group">
+                            {{ form.movesubmit(class="btn btn-primary")}}
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    <!--end move modal-->            
+              </div>
+              <div class="card-footer"></div>
+            </div>
+            <br><br>
+
+
+{% endblock content %}
+{% block footer %}
+  <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+  
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#proxies').dataTable();
+    });
+  </script>
+
+{% endblock %}
+<!-- https://www.youtube.com/watch?v=0dGqR4ue8dg
+
+
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/channels/teen-creamery
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/model/mmknoxxx
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/model/bellapetit
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/view_video.php?viewkey=ph60d29848408b0
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/model/collegecouple6996
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/model/sunnyways
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/model/rawproductions
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/model/iworshipherbody
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/model/emma-rae-little
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/model/lily-fantasy
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/model/sabrinaextrasmall
+http://pornhubvybmsymdol4iibwgwtkpwmeyd6luq2gxajgjzfjvotyt5zhyd.onion/model/runsonsin
+
+
+
+
+ -->

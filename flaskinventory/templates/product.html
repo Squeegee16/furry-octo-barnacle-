@@ -1,0 +1,168 @@
+{% extends "base.html" %} 
+{% block title %}Library{% endblock title%}
+{% block head %} 
+
+<!-- Data Table -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.css">
+<!-- Data Table --> 
+
+{% endblock %}
+
+{% block content %}
+            <br><br>
+            <div class="card wow fadeInRight" data-wow-delay="0.3s">
+              <div class="card-header">
+                <div class="container">
+                  <h1>Library</h1>
+                  <div class="container">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                       {%if messages %}
+                        {%for category, message in messages %}
+                          <div class="alert alert-{{ category }}">
+                            <h4 style="text-align:center;">{{ message }}</h4>
+                          </div>
+                        {%endfor%}
+                      {%endif %}
+                    {%endwith%}
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div>
+                  <h3 style="display: inline-block;margin:0;"> Manage Plant or Seed inventory</h3>
+                  <button type="button" class="btn btn-add" data-toggle="modal" data-target="#exampleModal">
+                   <span class="btn-icon-add"><i class="glyphicon glyphicon-plus"></i></span>Add Plant</button>
+                </div>
+                <br>
+                <div class="container">
+                  <table id="proxies" class="table table-sm"><!--display thead-light nowrap table-responsive">   table-hover  -->
+                    <thead>
+                      <tr> <!-- style="text-align:center"> -->
+                        <th>ID</th>
+                        <th>Plant Name</th>
+                        <th>Variety</th>
+                        <th>Seed Qty</th>
+                        <th>Edit</th>
+                        <th>Remove </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for d in details %}
+                      <tr>
+                        <td>{{d.prod_id}}</td>
+                        <td>{{d.prod_name}}</td>
+                        <td>
+                          <a href="{{ url_for('main.dataCard', p_id = d.prod_id,type =d.variety) }}">
+                          <button type="button" class="btn btn-primary">
+                          <span class="btn-icon"><i class="glyphicon glyphicon-zoom-in"></i></span>{{d.variety}}</button></a>
+                        </td>
+                        <td>{{d.prod_qty}}</td>
+                        <td>
+                          <button type="button" class="btn btn-edit btn-icon" data-toggle="modal" data-target = "#edit{{d.prod_id}}" >
+                          <i class="glyphicon glyphicon-pencil"></i></button>
+                        </td>
+                        <td>
+                          <a href="{{ url_for('main.delete', p_id = d.prod_id,type ='product') }}">
+                            <button type="button" class="btn btn-delete btn-icon">
+                            <i class="glyphicon glyphicon-trash"></i></button></a>
+                        </td>
+                      <!--editmodal-->
+                          <div class="modal fade" id="edit{{d.prod_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true" style="margin-top:150px;">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h3 class="modal-title" id="exampleModalLabel">Edit Library</h3>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <form  action="" method="POST" id="">
+                                  <div id="modal-cont" class="modal-body" >
+                                  
+                                    {{ eform.csrf_token() }}
+                                    <input type="hidden" name="Plantid" value="{{d.prod_id}}"/>
+                                    <input type="hidden" name="Plantname" value="{{d.prod_name}}"/>
+                                    {{ eform.editname.label(class="form-control-label")}}<br>
+                                    {{ eform.editname(class="form-control form-control-lg",placeholder=d.prod_name) }}
+                                    <input type="hidden" name="Variety" value="{{d.variety}}"/>
+                                    {{eform.editvar.label(class="form-control-label")}}<br>
+                                    {{ eform.editvar(class="form-control form-control-lg",placeholder=d.variety) }}
+                                    <input type="hidden" name="Quantity" value="{{d.prod_qty}}"/>
+                                    {{eform.editqty.label(class="form-control-label")}}<br>
+                                    {{eform.editqty(class="form-control form-control-lg",placeholder=d.prod_qty)}}
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <div>
+                                      {{ eform.editsubmit(class="btn btn-primary") }}
+                                    </div>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                    <!--editmodal end-->
+                      </tr>
+                      {%endfor%}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="card-footer"></div>
+            </div>
+          <br><br>
+
+                
+    <!-- add Modal code-->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top:150px;">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h3 class="modal-title" id="exampleModalLabel">Add Plant</h3>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form  action="" method="POST" id="products">
+                  <div id="modal-cont" class="modal-body" >
+                    
+                      {{ form.csrf_token() }}
+                      {{ form.prodname.label(class="form-control-label")}}<br>
+                      {{ form.prodname(class="form-control form-control-lg") }}
+
+                      {{ form.prodvar.label(class="form-control-label")}}<br>
+                      {{ form.prodvar(class="form-control form-control-lg") }}
+
+                      {{ form.prodqty.label(class="form-control-label")}}<br>
+                      {{ form.prodqty(class="form-control form-control-lg") }}
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <div >
+                      {{ form.prodsubmit(class="btn btn-primary") }}
+                    </div>
+                  </div>
+              </form>
+              </div>
+            </div>
+          </div>
+    <!--end of modal design-->
+
+
+
+{% endblock content %}
+
+{% block footer %}
+  <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+  
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#proxies').dataTable();
+    });
+  </script>
+
+{% endblock %}
